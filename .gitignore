@@ -11,6 +11,9 @@ package-lock.json
 /build
 
 # misc
+/.idea
+combined.log
+error.log
 .DS_Store
 .env.local
 .env.development.local

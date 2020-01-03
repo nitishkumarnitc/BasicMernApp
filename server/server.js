@@ -3,6 +3,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
 const users = require("./routes/api/users");
+const log=require("./logger")
 const app = express();
 app.use(
   bodyParser.urlencoded({
@@ -20,8 +21,8 @@ mongoose
     db,
     { useNewUrlParser: true }
   )
-  .then(() => console.log("MongoDB successfully connected"))
-  .catch(err => console.log(err));
+  .then(() => log.info("MongoDB successfully connected"))
+  .catch(err => log.error(err));
 
 // Passport middleware
 app.use(passport.initialize());
@@ -34,4 +35,4 @@ app.use("/api/users", users);
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server up and running on port ${port} !`));
+app.listen(port, () => log.info(`Server up and running on port ${port} !`));

@@ -13,6 +13,10 @@ class Register extends Component {
       email: "",
       password: "",
       password2: "",
+      location:"",
+      company:"",
+      jobTitle:"",
+      jobDescription:"",
       errors: {}
     };
   }
@@ -43,7 +47,11 @@ class Register extends Component {
       name: this.state.name,
       email: this.state.email,
       password: this.state.password,
-      password2: this.state.password2
+      password2: this.state.password2,
+      location:this.state.location,
+      company:this.state.company,
+      jobTitle:this.state.jobTitle,
+      jobDescription:this.state.jobDescription
     };
 
     this.props.registerUser(newUser, this.props.history);
@@ -96,6 +104,66 @@ class Register extends Component {
                 />
                 <label htmlFor="email">Email</label>
                 <span className="red-text">{errors.email}</span>
+              </div>
+
+              <div className="input-field col s12">
+                <input
+                    onChange={this.onChange}
+                    value={this.state.location}
+                    error={errors.location}
+                    id="location"
+                    type="text"
+                    className={classnames("", {
+                      invalid: errors.location
+                    })}
+                />
+                <label htmlFor="email">Location</label>
+                <span className="red-text">{errors.location}</span>
+              </div>
+
+              <div className="input-field col s12">
+                <input
+                    onChange={this.onChange}
+                    value={this.state.company}
+                    error={errors.company}
+                    id="company"
+                    type="text"
+                    className={classnames("", {
+                      invalid: errors.company
+                    })}
+                />
+                <label htmlFor="email">Company</label>
+                <span className="red-text">{errors.company}</span>
+              </div>
+
+              <div className="input-field col s12">
+                <input
+                    onChange={this.onChange}
+                    value={this.state.jobTitle}
+                    error={errors.jobTitle}
+                    id="jobTitle"
+                    type="text"
+                    className={classnames("", {
+                      invalid: errors.jobTitle
+                    })}
+                />
+                <label htmlFor="email">Job Title</label>
+                <span className="red-text">{errors.jobTitle}</span>
+              </div>
+
+              <div className="input-field col s12">
+                <input
+                    onChange={this.onChange}
+                    value={this.state.jobDescription}
+                    error={errors.jobDescription}
+                    id="jobDescription"
+                    type="text"
+                    className={classnames("", {
+                      invalid: errors.jobDescription
+                    })}
+                />
+                <label htmlFor="email">Job Description</label>
+                <span className="red-text">{errors.jobDescription}</span>
               </div>
               <div className="input-field col s12">
                 <input

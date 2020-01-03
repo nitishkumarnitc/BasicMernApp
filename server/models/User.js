@@ -7,6 +7,22 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  location: {
+    type: String,
+    required: true
+  },
+  company: {
+    type: String,
+    required: true
+  },
+  jobTitle: {
+    type: String,
+    required: true
+  },
+  jobDescription: {
+    type: String,
+    required: true
+  },
   email: {
     type: String,
     required: true
