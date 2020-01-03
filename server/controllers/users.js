@@ -1,3 +1,4 @@
+
 const UserService=require('./../service/User')
 // Load input validation
 const validateRegisterInput = require("./../validation/register");
@@ -37,5 +38,18 @@ module.exports={
             return res.status(400).json(err)
         })
 
-    }
+    },
+    searchUsers:  (req, res) =>{
+        UserService.searchUsers().then((users) => {
+            res.status(200).json(users);
+        }).catch((err) => {
+            res.status(400).json({errorMessage:"User not found"})
+        });
+    },
+    getUserById:  (req, res) =>{
+        let id = req.params.id;
+        UserService.getUserById(id).then(user => {
+            res.status(200).json(user);
+        });
+    },
 }

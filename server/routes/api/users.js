@@ -10,5 +10,7 @@ router.post("/register",UserController.register);
 // @desc Login user and return JWT token
 // @access Public
 router.post("/login",UserController.login);
+router.get("/searchUsers",UserController.searchUsers);
+router.get("/:id",UserController.getUserById);
 
 module.exports = router;

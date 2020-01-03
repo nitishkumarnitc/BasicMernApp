@@ -76,10 +76,29 @@ module.exports={
                 });
             }).catch(error=>{
                 log.error("error ",error);
-                reject(error)
+                reject(error);
             })
 
         })
 
-    }
+    },
+    searchUsers:  ()=> {
+        return new Promise((resolve, reject) => {
+            User.find(function (err, users) {
+                if (err) {
+                    reject(err);
+                } else {
+                    resolve(users)
+                }
+            });
+        })
+    },
+    getUserById: (id)=> {
+        return new Promise((resolve, reject) => {
+            User.findById(id, function (err, user) {
+                if (err) reject(err)
+                resolve(user);
+            });
+        })
+    },
 }
